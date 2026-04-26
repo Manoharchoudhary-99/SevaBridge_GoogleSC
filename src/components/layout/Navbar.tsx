@@ -15,6 +15,7 @@ export default function Navbar() {
     { name: 'Tasks', path: '/tasks' },
     { name: 'Impact', path: '/analytics' },
     { name: 'About', path: '/about' },
+    { name: 'Contact', path: '/contact' },
   ];
 
   const isHome = location.pathname === '/';

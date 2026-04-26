@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Home from './pages/Home';
 import Dashboard from './pages/Dashboard';
@@ -8,6 +8,7 @@ import Tasks from './pages/Tasks';
 import Analytics from './pages/Analytics';
 import About from './pages/About';
 import Auth from './pages/Auth';
+import Contact from './pages/Contact';
 
 export default function App() {
   return (
@@ -23,6 +24,7 @@ export default function App() {
             <Route path="/analytics" element={<Analytics />} />
             <Route path="/about" element={<About />} />
             <Route path="/auth" element={<Auth />} />
+            <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>
         
@@ -38,17 +40,17 @@ export default function App() {
             <div>
               <h4 className="text-white font-bold mb-4">Platform</h4>
               <ul className="space-y-2 text-sm">
-                <li><a href="#" className="hover:text-brand-gold-light transition-colors">Needs Dashboard</a></li>
-                <li><a href="#" className="hover:text-brand-gold-light transition-colors">Matching Logic</a></li>
-                <li><a href="#" className="hover:text-brand-gold-light transition-colors">Impact Reporting</a></li>
+                <li><Link to="/dashboard" className="hover:text-brand-gold-light transition-colors">Needs Dashboard</Link></li>
+                <li><Link to="/matching" className="hover:text-brand-gold-light transition-colors">Matching Logic</Link></li>
+                <li><Link to="/analytics" className="hover:text-brand-gold-light transition-colors">Impact Reporting</Link></li>
               </ul>
             </div>
             <div>
               <h4 className="text-white font-bold mb-4">Connect</h4>
               <ul className="space-y-2 text-sm">
-                <li><a href="#" className="hover:text-brand-gold-light transition-colors">Contact Support</a></li>
-                <li><a href="#" className="hover:text-brand-gold-light transition-colors">NGO Partnership</a></li>
-                <li><a href="#" className="hover:text-brand-gold-light transition-colors">Volunteer portal</a></li>
+                <li><Link to="/contact" className="hover:text-brand-gold-light transition-colors">Contact Support</Link></li>
+                <li><Link to="/auth" className="hover:text-brand-gold-light transition-colors">NGO Partnership</Link></li>
+                <li><Link to="/auth" className="hover:text-brand-gold-light transition-colors">Volunteer portal</Link></li>
               </ul>
             </div>
           </div>
