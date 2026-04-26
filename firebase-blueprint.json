@@ -1,0 +1,76 @@
+{
+  "entities": {
+    "Need": {
+      "title": "Community Need",
+      "description": "A specific local community need collected from surveys or reports.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "location": { "type": "string" },
+        "coordinates": { 
+          "type": "object",
+          "properties": {
+            "lat": { "type": "number" },
+            "lng": { "type": "number" }
+          }
+        },
+        "urgency": { "type": "string", "enum": ["Low", "Medium", "High", "Critical"] },
+        "category": { "type": "string", "enum": ["Health", "Education", "Food", "Infrastructure", "Sanitation", "Other"] },
+        "status": { "type": "string", "enum": ["Pending", "Assigned", "Resolved"] },
+        "priorityScore": { "type": "number" },
+        "collectedAt": { "type": "string", "format": "date-time" },
+        "reportedBy": { "type": "string" }
+      },
+      "required": ["title", "location", "urgency", "category", "status"]
+    },
+    "Volunteer": {
+      "title": "Volunteer Profile",
+      "description": "Information about a community volunteer.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "skills": { "type": "array", "items": { "type": "string" } },
+        "location": { "type": "string" },
+        "availability": { "type": "string" },
+        "experienceLevel": { "type": "string", "enum": ["Novice", "Experienced", "Expert"] },
+        "activeWorkload": { "type": "number" },
+        "joinedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["name", "email", "skills", "location"]
+    },
+    "Task": {
+      "title": "Task Assignment",
+      "description": "A need assigned to a volunteer.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "needId": { "type": "string" },
+        "volunteerId": { "type": "string" },
+        "assignedBy": { "type": "string" },
+        "status": { "type": "string", "enum": ["In Progress", "Completed", "Stalled"] },
+        "assignedAt": { "type": "string", "format": "date-time" },
+        "deadline": { "type": "string", "format": "date-time" },
+        "impactSummary": { "type": "string" }
+      },
+      "required": ["needId", "volunteerId", "status", "assignedAt"]
+    }
+  },
+  "firestore": {
+    "needs": {
+      "schema": "Need",
+      "description": "All collected community needs."
+    },
+    "volunteers": {
+      "schema": "Volunteer",
+      "description": "Profiles of all active volunteers."
+    },
+    "tasks": {
+      "schema": "Task",
+      "description": "Assignments matching volunteers to needs."
+    }
+  }
+}

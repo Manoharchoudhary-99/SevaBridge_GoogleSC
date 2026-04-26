@@ -1,0 +1,12 @@
+{
+  "name": "SevaBridge",
+  "description": "A premium community impact platform for NGOs to collect data, prioritize local needs, and intelligently match volunteers with tasks.",
+  "requestFramePermissions": [
+    "geolocation"
+  ],
+  "majorCapabilities": [
+    "Volunteer Matching Logic",
+    "Real-time Impact Analytics",
+    "Heatmap Visualization"
+  ]
+}
